@@ -9,7 +9,7 @@ using Dapper;
 
 namespace DataAccessLayer.Repositories
 {
-    public class SparesRepository : RepositoryBase, IRepository<Spares>
+    public class SparesRepository : RepositoryBase, IRepository<Spare>
     {
         private const string sqlCreate = "INSERT INTO Spares (PartName) VALUES(@PartName)";
         private const string sqlDelete = "DELETE FROM Spares WHERE PartId = @PartId";
@@ -19,14 +19,14 @@ namespace DataAccessLayer.Repositories
 
         public SparesRepository(string connection) : base(connection) { }
 
-        public void Create(Spares instance) => connection.Execute(sqlCreate, instance);
+        public void Create(Spare instance) => connection.Execute(sqlCreate, instance);
 
         public void Delete(int id) => connection.Execute(sqlDelete, new { id });
 
-        public IEnumerable<Spares> GetAll() => connection.Query<Spares>(sqlGetAll);
+        public IEnumerable<Spare> GetAll() => connection.Query<Spare>(sqlGetAll);
 
-        public Spares GetById(int id) => connection.QueryFirst<Spares>(sqlGetById, new { id });
+        public Spare GetById(int id) => connection.QueryFirst<Spare>(sqlGetById, new { id });
 
-        public void Update(Spares instance) => connection.Execute(sqlUpdate, instance);
+        public void Update(Spare instance) => connection.Execute(sqlUpdate, instance);
     }
 }
