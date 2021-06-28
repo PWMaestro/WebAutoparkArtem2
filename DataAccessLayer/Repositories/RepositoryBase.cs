@@ -22,6 +22,6 @@ namespace DataAccessLayer.Repositories
 
         public void Dispose() => connection?.Dispose();
 
-        public ValueTask DisposeAsync() => connection.DisposeAsync();
+        public ValueTask DisposeAsync() => (ValueTask)connection?.DisposeAsync();
     }
 }
