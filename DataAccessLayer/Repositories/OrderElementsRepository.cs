@@ -11,21 +11,21 @@ namespace DataAccessLayer.Repositories
 {
     public class OrderElementsRepository : RepositoryBase, IRepository<OrderElement>
     {
-        private const string sqlCreate = "INSERT INTO OrderElements ( OrderId,  SpareId,  SpareQuantity) "
-                                       + "VALUES                    (@OrderId, @SpareId, @SpareQuantity)";
+        private const string sqlCreate = "INSERT INTO OrderElements (OrderId, SpareId, SpareQuantity) "
+                                       + "VALUES (@OrderId, @SpareId, @SpareQuantity)";
 
-        private const string sqlDelete = "DELETE FROM OrderElements WHERE Id = @Id";
+        private const string sqlDelete = "DELETE FROM OrderElements WHERE OrderElementId = @Id";
 
         private const string sqlGetAll = "SELECT "
                                            + "OE.*, SP.* "
                                        + "FROM OrderElements AS OE "
-                                       + "JOIN Spares AS SP ON OE.SparePartId = SP.Id";
+                                       + "JOIN Spares AS SP ON OE.SpareId = SP.SpareId";
 
-        private const string sqlGetById = "SELECT * FROM OrderElements WHERE Id = @Id";
+        private const string sqlGetById = "SELECT * FROM OrderElements WHERE OrderElementId = @Id";
 
         private const string sqlUpdate = "UPDATE OrderElements "
                                        + "SET OrderId = @OrderId, SpareId = @SpareId, SpareQuantity = @SpareQuantity "
-                                       + "WHERE Id = @Id";
+                                       + "WHERE OrderElementId = @Id";
 
         public OrderElementsRepository(string connection) : base(connection) { }
 

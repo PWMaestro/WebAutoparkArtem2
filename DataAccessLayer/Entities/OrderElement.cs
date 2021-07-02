@@ -8,7 +8,7 @@ namespace DataAccessLayer.Entities
 {
     public class OrderElement
     {
-        public int Id { get; set; }
+        public int OrderElementId { get; set; }
         public int OrderId { get; set; }
         public int SpareId { get; set; }
         public Spare Part { get; set; }
