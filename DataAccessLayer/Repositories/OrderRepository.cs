@@ -13,29 +13,29 @@ namespace DataAccessLayer.Repositories
     {
         private const string sqlCreate = "INSERT INTO Orders (VehicleId) VALUES(@VehicleId)";
 
-        private const string sqlDelete = "DELETE FROM Orders WHERE Id = @Id";
+        private const string sqlDelete = "DELETE FROM Orders WHERE OrderId = @Id";
 
         private const string sqlGetAll = "SELECT "
                                            + "O.*, V.Id AS VId, V.VehicleTypeId, V.ModelName, V.RegistrationNumber, V.WeightKg, V.ManufactureYear, "
                                            + "V.Mileage, V.Color, V.EngineType, V.EngineCapacity, V.EngineConsumption, V.EnergyTankCapacity, "
-                                           + "OE.Id AS OEId, OE.OrderId, OE.SpareId, OE.SpareQuantity, "
-                                           + "SP.Id AS SPId, SP.Name"
+                                           + "OE.OrderElementId AS OEId, OE.OrderId, OE.SpareId, OE.SpareQuantity, "
+                                           + "SP.SpareId AS SPId, SP.Name"
                                        + "FROM Orders AS O"
-                                           + "LEFT JOIN OrderElements  AS OE  ON O.Id = OE.OrderId"
+                                           + "LEFT JOIN OrderElements  AS OE  ON O.OrderId = OE.OrderId"
                                            + "     JOIN Vehicles       AS V   ON O.VehicleId = V.Id"
-                                           + "LEFT JOIN Spares         AS SP  ON OE.SpareId = SP.Id";
+                                           + "LEFT JOIN Spares         AS SP  ON OE.SpareId = SP.SpareId";
 
         private const string sqlGetById = "SELECT "
                                             + "O.*, V.Id AS VId, V.VehicleTypeId, V.ModelName, V.RegistrationNumber, V.WeightKg, V.ManufactureYear, "
                                             + "V.Mileage, V.Color, V.EngineType, V.EngineCapacity, V.EngineConsumption, V.EnergyTankCapacity, "
-                                            + "OE.Id AS OEId, OE.OrderId, OE.SpareId, OE.SpareQuantity, "
-                                            + "SP.Id AS SPId, SP.Name"
+                                            + "OE.OrderElementId AS OEId, OE.OrderId, OE.SpareId, OE.SpareQuantity, "
+                                            + "SP.SpareId AS SPId, SP.Name"
                                         + "FROM Orders AS O"
-                                            + "LEFT JOIN OrderElements  AS OE  ON O.Id = OE.OrderId"
+                                            + "LEFT JOIN OrderElements  AS OE  ON O.OrderId = OE.OrderId"
                                             + "     JOIN Vehicles       AS V   ON O.VehicleId = V.Id"
-                                            + "LEFT JOIN Spares         AS SP  ON OE.SpareId = SP.Id WHERE O.Id = @Id";
+                                            + "LEFT JOIN Spares         AS SP  ON OE.SpareId = SP.SpareId WHERE O.OrderId = @Id";
 
-        private const string sqlUpdate = "UPDATE Orders SET VehicleId = @VehicleId WHERE Id = @Id";
+        private const string sqlUpdate = "UPDATE Orders SET VehicleId = @VehicleId WHERE OrderId = @Id";
 
         public OrderRepository(string connection) : base(connection) { }
 

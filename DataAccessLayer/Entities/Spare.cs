@@ -2,7 +2,7 @@
 {
     public class Spare
     {
-        public int Id { get; set; }
+        public int SpareId { get; set; }
         public string Name { get; set; }
     }
 }

@@ -12,10 +12,10 @@ namespace DataAccessLayer.Repositories
     public class SparesRepository : RepositoryBase, IRepository<Spare>
     {
         private const string sqlCreate = "INSERT INTO Spares (Name) VALUES(@Name)";
-        private const string sqlDelete = "DELETE FROM Spares WHERE Id = @Id";
+        private const string sqlDelete = "DELETE FROM Spares WHERE SpareId = @Id";
         private const string sqlGetAll = "SELECT * FROM Spares";
-        private const string sqlGetById = "SELECT * FROM Spares WHERE Id = @Id";
-        private const string sqlUpdate = "UPDATE Spares SET Name = @Name WHERE Id = @Id";
+        private const string sqlGetById = "SELECT * FROM Spares WHERE SpareId = @Id";
+        private const string sqlUpdate = "UPDATE Spares SET Name = @Name WHERE SpareId = @Id";
 
         public SparesRepository(string connection) : base(connection) { }
 
