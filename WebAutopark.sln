@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31410.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAutopark", "WebAutopark\WebAutopark.csproj", "{96114A43-753E-4E7A-B6F1-20F13B939760}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7BD50C6B-CE71-4FC6-A962-0B43A9C37689}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{7BD50C6B-CE71-4FC6-A962-0B43A9C37689}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
