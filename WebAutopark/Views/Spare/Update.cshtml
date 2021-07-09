@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "WAuto | UPDATE SPARE";
+}
+
+<form method="post">
+    <label>Spare part ID:</label>
+    <input type="text" name="id" value="@ViewBag.spare.SpareId" readonly/>
+    <label>Spare part name:</label>
+    <input type="text" name="name" value="@ViewBag.spare.Name" autofocus/>
+    <button type="submit" value="Update">Update</button>
+</form>

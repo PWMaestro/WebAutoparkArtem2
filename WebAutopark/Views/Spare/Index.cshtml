@@ -14,13 +14,17 @@
     <tbody>
         @foreach (var spare in Model)
         {
-            <tr>
-                <td>@spare.SpareId</td>
-                <td>@spare.Name</td>
-                <td>Update / Delete</td>
-            </tr>
+        <tr>
+            <td>@spare.SpareId</td>
+            <td>@spare.Name</td>
+            <td>
+                <a asp-controller="Spare" asp-action="Update" asp-route-id="@spare.SpareId">Update</a>
+                <span>/</span>
+                <a asp-controller="Spare" asp-action="Delete" asp-route-id="@spare.SpareId">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>
 
-<a href="#">Create new</a>
+<a asp-area="" asp-controller="Spare" asp-action="Create">Create new</a>
