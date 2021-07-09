@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "WAuto | VEHICLE TYPES";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Type ID</th>
+            <th scope="col">Type name</th>
+            <th scope="col">Tax coefficient</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicleType in Model)
+        {
+            <tr>
+                <td>@vehicleType.VehicleTypeId</td>
+                <td>@vehicleType.TypeName</td>
+                <td>@vehicleType.TaxCoeff</td>
+                <td>Update / Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="#">Create new</a>

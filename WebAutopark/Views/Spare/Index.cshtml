@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "WAuto | SPARES";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Spare ID</th>
+            <th scope="col">Spare name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var spare in Model)
+        {
+        <tr>
+            <td>@spare.SpareId</td>
+            <td>@spare.Name</td>
+            <td>
+                <a asp-controller="Spare" asp-action="Update" asp-route-id="@spare.SpareId">Update</a>
+                <span>/</span>
+                <a asp-controller="Spare" asp-action="Delete" asp-route-id="@spare.SpareId">Delete</a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-area="" asp-controller="Spare" asp-action="Create">Create new</a>

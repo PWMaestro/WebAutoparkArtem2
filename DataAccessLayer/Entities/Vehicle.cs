@@ -27,7 +27,7 @@ namespace DataAccessLayer.Entities
         public double EngineConsumption { get; set; }
         public double EnergyTankCapacity { get; set; }
         public double TaxPerMonth => Weight * WeightCoefficient
-                                   + VehicleType.TaxCoefficient * TaxMultiplier
+                                   + VehicleType.TaxCoeff * TaxMultiplier
                                    + TaxBasicShift;
         public double MaxKm => EnergyTankCapacity / EngineConsumption;
         public Color Color { get; set; }  
