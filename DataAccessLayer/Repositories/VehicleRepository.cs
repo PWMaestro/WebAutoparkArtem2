@@ -20,13 +20,13 @@ namespace DataAccessLayer.Repositories
 
         private const string sqlDelete = "DELETE FROM Vehicles WHERE VehicleId = @VehicleId";
 
-        private const string sqlGetAll = "SELECT V.*, VT.Id AS VTId, VT.TypeName, VT.TaxCoeff "
+        private const string sqlGetAll = "SELECT V.*, VT.VehicleTypeId AS VTId, VT.TypeName, VT.TaxCoeff "
                                        + "FROM Vehicles AS V "
-                                       + "INNER JOIN VehicleTypes AS VT ON V.VehicleTypeId = VT.Id";
+                                       + "INNER JOIN VehicleTypes AS VT ON V.VehicleTypeId = VT.VehicleTypeId";
 
         private const string sqlGetById = "SELECT V.*, VT.Id AS VTId, VT.TypeName, VT.TaxCoeff "
                                         + "FROM Vehicles AS V "
-                                        + "INNER JOIN VehicleTypes AS VT ON V.VehicleTypeId = VT.Id "
+                                        + "INNER JOIN VehicleTypes AS VT ON V.VehicleTypeId = VT.VehicleTypeId "
                                         + "WHERE V.Id = @id";
 
         private const string sqlUpdate = "UPDATE Vehicles SET "
