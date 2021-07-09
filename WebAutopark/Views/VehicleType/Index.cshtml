@@ -1,0 +1,28 @@
+﻿@{
+    ViewData["Title"] = "WAuto | Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome Home</h1>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">TaxCoefficient</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicleType in Model)
+        {
+            <tr>
+                <td>@vehicleType.VehicleTypeId</td>
+                <td>@vehicleType.TypeName</td>
+                <td>@vehicleType.TaxCoeff</td>
+            </tr>
+        }
+    </tbody>
+</table>
