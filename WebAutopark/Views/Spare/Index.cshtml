@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "WAuto | SPARES";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Spare ID</th>
+            <th scope="col">Spare name</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var spare in Model)
+        {
+            <tr>
+                <td>@spare.SpareId</td>
+                <td>@spare.Name</td>
+                <td>Update / Delete</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a href="#">Create new</a>
