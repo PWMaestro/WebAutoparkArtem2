@@ -1,11 +1,13 @@
-﻿@{
+﻿@using DataAccessLayer.Entities
+@model Spare
+@{
     ViewData["Title"] = "WAuto | UPDATE SPARE";
 }
 
 <form method="post">
     <label>Spare part ID:</label>
-    <input type="text" name="id" value="@ViewBag.spare.SpareId" readonly/>
+    <input type="text" name="id" value="@Model.SpareId" readonly/>
     <label>Spare part name:</label>
-    <input type="text" name="name" value="@ViewBag.spare.Name" autofocus/>
+    <input type="text" name="name" value="@Model.Name" autofocus/>
     <button type="submit" value="Update">Update</button>
 </form>
