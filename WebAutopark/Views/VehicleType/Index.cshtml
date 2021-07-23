@@ -1,4 +1,6 @@
-﻿@{
+﻿@using DataAccessLayer.Entities
+@model IEnumerable<VehicleType>
+@{
     ViewData["Title"] = "WAuto | VEHICLE TYPES";
 }
 
@@ -19,10 +21,14 @@
                 <td>@vehicleType.VehicleTypeId</td>
                 <td>@vehicleType.TypeName</td>
                 <td>@vehicleType.TaxCoeff</td>
-                <td>Update / Delete</td>
+                <td>
+                    <a asp-controller="VehicleType" asp-action="Update" asp-route-id="@vehicleType.VehicleTypeId">Update</a>
+                    <span>/</span>
+                    <a asp-controller="VehicleType" asp-action="Delete" asp-route-id="@vehicleType.VehicleTypeId">Delete</a>
+                </td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="#">Create new</a>
+<a asp-controller="VehicleType" asp-action="Create">Create new</a>
