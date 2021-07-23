@@ -1,0 +1,20 @@
+﻿@using DataAccessLayer.Entities
+@model VehicleType
+@{
+    ViewData["Title"] = "WAuto | CREATE VEHICLE TYPE";
+}
+
+@using (Html.BeginForm("Create", "VehicleType", FormMethod.Post))
+{
+    <label>Vehicle type name:</label>
+    <br />
+    @Html.TextBoxFor(e => e.TypeName)
+    <br />
+
+    <label>Vehicle type tax coefficient:</label>
+    <br />
+    @Html.TextBoxFor(e => e.TaxCoeff)
+    <br />
+
+    <button type="submit" value="Create">Create</button>
+}
