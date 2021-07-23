@@ -20,7 +20,8 @@ namespace WebAutopark.Controllers
 
         public IActionResult Index()
         {
-            return View(_spareRepo.GetAll().OrderBy(sp => sp.SpareId));
+            var spares = _spareRepo.GetAll().OrderBy(sp => sp.SpareId);
+            return View(spares);
         }
 
         [HttpGet]

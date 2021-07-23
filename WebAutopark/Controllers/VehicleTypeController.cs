@@ -20,7 +20,9 @@ namespace WebAutopark.Controllers
 
         public IActionResult Index()
         {
-            return View(_vehicleTypeRepo.GetAll().OrderBy(elem => elem.VehicleTypeId));
+            var vehicleTypes = _vehicleTypeRepo.GetAll().OrderBy(e => e.VehicleTypeId);
+            return View(vehicleTypes);
+        }
         }
     }
 }
