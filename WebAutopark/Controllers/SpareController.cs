@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DataAccessLayer.Repositories;
 using DataAccessLayer.Interfaces;
 using DataAccessLayer.Entities;
+using WebAutopark.Models;
 
 namespace WebAutopark.Controllers
 {
@@ -40,8 +41,8 @@ namespace WebAutopark.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            ViewBag.spare = _spareRepo.GetById(id);
-            return View();
+            var spare = _spareRepo.GetById(id);
+            return View(spare);
         }
 
         [HttpPost]
