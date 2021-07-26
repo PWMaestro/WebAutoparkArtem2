@@ -46,9 +46,9 @@ namespace WebAutopark.Controllers
         }
 
         [HttpPost]
-        public IActionResult Update(string name, int id)
+        public IActionResult Update(Spare spare)
         {
-            _spareRepo.Update(new Spare { Name = name, SpareId = id });
+            _spareRepo.Update(spare);
             return RedirectToAction("Index");
         }
 

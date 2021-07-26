@@ -9,25 +9,17 @@
     <label>Vehicle type ID:</label>
     <br />
     @Html.TextBoxFor(
-        e => e.VehicleTypeId,
-        new { @readonly = "readonly", @value = Model.VehicleTypeId }
+        m => m.VehicleTypeId,
+        new { @readonly = "readonly" }
     )
     <br />
-
     <label>Vehicle type name:</label>
     <br />
-    @Html.TextBoxFor(
-        e => e.TypeName,
-        new { @value = Model.TypeName }
-    )
+    @Html.TextBoxFor(m => m.TypeName)
     <br />
-
     <label>Vehicle type tax coefficient:</label>
     <br />
-    @Html.TextBoxFor(
-        e => e.TaxCoeff,
-        new { @value = Model.TaxCoeff }
-    )
+    @Html.TextBoxFor(m => m.TaxCoeff)
     <br />
 
     <button type="submit">Update</button>
