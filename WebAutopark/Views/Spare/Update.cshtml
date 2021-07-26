@@ -4,10 +4,19 @@
     ViewData["Title"] = "WAuto | UPDATE SPARE";
 }
 
-<form method="post">
+@using (Html.BeginForm("Update", "Spare", FormMethod.Post))
+{
     <label>Spare part ID:</label>
-    <input type="text" name="id" value="@Model.SpareId" readonly/>
+    <br />
+    @Html.TextBoxFor(
+        m => m.SpareId,
+        new { @readonly = "readonly"}
+    )
+    <br />
     <label>Spare part name:</label>
-    <input type="text" name="name" value="@Model.Name" autofocus/>
-    <button type="submit" value="Update">Update</button>
-</form>
+    <br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+
+    <button type="submit">Update</button>
+}

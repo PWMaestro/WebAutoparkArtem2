@@ -1,10 +1,15 @@
-﻿@{
+﻿@using DataAccessLayer.Entities
+@model Spare
+@{
     ViewData["Title"] = "WAuto | CREATE SPARE";
 }
 
-<form method="post">
+@using (Html.BeginForm("Create", "Spare", FormMethod.Post))
+{
     <label>Spare part name:</label>
-    <input type="text" name="name" autofocus/>
+    <br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
 
-    <button type="submit" value="Create">Create</button>
-</form>
+    <button type="submit">Create</button>
+}
