@@ -24,11 +24,9 @@ namespace WebAutopark.Controllers
         }
 
         [HttpGet]
-        public IActionResult Index(string col = null, string direction = null)
+        public IActionResult Index(SortOrder sortOrder)
         {
-            var sortOrder = new SortOrder(col, direction);
             var vehicles = _vehicleRepo.GetAll(sortOrder);
-
             return View(vehicles);
         }
 

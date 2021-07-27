@@ -12,6 +12,8 @@ namespace DataAccessLayer.DataTransferObjects
         public string Column { get; set; }
         public string Direction { get; set; }
 
+        public SortOrder() { }
+
         public SortOrder(string column, string direction)
         {
             Column = column;
