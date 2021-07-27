@@ -1,0 +1,22 @@
+﻿@using DataAccessLayer.Entities
+@model Spare
+@{
+    ViewData["Title"] = "WAuto | UPDATE SPARE";
+}
+
+@using (Html.BeginForm("Update", "Spare", FormMethod.Post))
+{
+    <label>Spare part ID:</label>
+    <br />
+    @Html.TextBoxFor(
+        m => m.SpareId,
+        new { @readonly = "readonly"}
+    )
+    <br />
+    <label>Spare part name:</label>
+    <br />
+    @Html.TextBoxFor(m => m.Name)
+    <br />
+
+    <button type="submit">Update</button>
+}

@@ -1,0 +1,34 @@
+﻿@using DataAccessLayer.Entities
+@model IEnumerable<VehicleType>
+@{
+    ViewData["Title"] = "WAuto | VEHICLE TYPES";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Type ID</th>
+            <th scope="col">Type name</th>
+            <th scope="col">Tax coefficient</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicleType in Model)
+        {
+            <tr>
+                <td>@vehicleType.VehicleTypeId</td>
+                <td>@vehicleType.TypeName</td>
+                <td>@vehicleType.TaxCoeff</td>
+                <td>
+                    <a asp-controller="VehicleType" asp-action="Update" asp-route-id="@vehicleType.VehicleTypeId">Update</a>
+                    <span>/</span>
+                    <a asp-controller="VehicleType" asp-action="Delete" asp-route-id="@vehicleType.VehicleTypeId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="VehicleType" asp-action="Create">Create new</a>

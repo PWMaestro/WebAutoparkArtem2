@@ -1,0 +1,26 @@
+﻿@using DataAccessLayer.Entities
+@model VehicleType
+@{
+    ViewData["Title"] = "WAuto | UPDATE VEHICLE TYPE";
+}
+
+@using (Html.BeginForm("Update", "VehicleType", FormMethod.Post))
+{
+    <label>Vehicle type ID:</label>
+    <br />
+    @Html.TextBoxFor(
+        m => m.VehicleTypeId,
+        new { @readonly = "readonly" }
+    )
+    <br />
+    <label>Vehicle type name:</label>
+    <br />
+    @Html.TextBoxFor(m => m.TypeName)
+    <br />
+    <label>Vehicle type tax coefficient:</label>
+    <br />
+    @Html.TextBoxFor(m => m.TaxCoeff)
+    <br />
+
+    <button type="submit">Update</button>
+}
