@@ -1,0 +1,58 @@
+﻿@using DataAccessLayer.Entities
+@model CreateUpdateVehicleModel
+@{
+    ViewData["Title"] = "WAuto | CREATE VEHICLE";
+}
+
+@using (Html.BeginForm("Create", "Vehicle", FormMethod.Post))
+{
+    <label>Model name:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.ModelName)
+    <br />
+    <label>Vehicle type:</label>
+    <br />
+    @Html.DropDownListFor(
+        m => m.Vehicle.VehicleTypeId,
+        Model.VehicleTypeIds as IEnumerable<SelectListItem>
+    )
+    <br />
+    <label>Registration number:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.RegistrationNumber)
+    <br />
+    <label>Manufacture year:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.ManufactureYear)
+    <br />
+    <label>Mileage:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.Mileage)
+    <br />
+    <label>Weight:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.Weight)
+    <br />
+    <label>Engine type:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.EngineType)
+    <br />
+    <label>Engine capacity:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.EngineCapacity)
+    <br />
+    <label>Engine consumption:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.EngineConsumption)
+    <br />
+    <label>Energy tank capacity:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.EnergyTankCapacity)
+    <br />
+    <label>Color:</label>
+    <br />
+    @Html.EditorFor(m => m.Vehicle.Color)
+    <br />
+
+    <button type="submit">Create</button>
+}

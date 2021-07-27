@@ -14,7 +14,7 @@ namespace DataAccessLayer.Entities
         private const int TaxMultiplier = 30;
         private const double WeightCoefficient = 0.0013;
 
-        public int Id { get; set; }
+        public int VehicleId { get; set; }
         public string ModelName { get; set; }
         public int VehicleTypeId { get; set; }
         public VehicleType VehicleType { get; set; }
@@ -27,7 +27,7 @@ namespace DataAccessLayer.Entities
         public double EngineConsumption { get; set; }
         public double EnergyTankCapacity { get; set; }
         public double TaxPerMonth => Weight * WeightCoefficient
-                                   + VehicleType.TaxCoefficient * TaxMultiplier
+                                   + VehicleType.TaxCoeff * TaxMultiplier
                                    + TaxBasicShift;
         public double MaxKm => EnergyTankCapacity / EngineConsumption;
         public Color Color { get; set; }  
