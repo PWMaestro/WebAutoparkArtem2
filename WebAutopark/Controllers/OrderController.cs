@@ -12,26 +12,28 @@ namespace WebAutopark.Controllers
     public class OrderController : Controller
     {
         private readonly IRepository<Order> _orderRepo;
+        private readonly IVehicleRepository _vehicleRepo;
 
-        public OrderController(IRepository<Order> orderRepository)
+        public OrderController(IRepository<Order> orderRepository, IVehicleRepository vehicleRepository)
         {
             _orderRepo = orderRepository;
+            _vehicleRepo = vehicleRepository;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
-            var orders = _orderRepo.GetAll();
+            var orders = _orderRepo.GetAll().GroupBy(o => o.OrderId).Select(g => new Order
+            {
+                OrderId = g.Key,
+                VehicleId = g.First().VehicleId,
+                Vehicle = g.First().Vehicle,
+                OrderElements = g.First().OrderElements
+            });
             return View(orders);
         }
 
         [HttpGet]
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        [HttpPost]
         public IActionResult Create(Order order)
         {
             _orderRepo.Create(order);
@@ -39,9 +41,10 @@ namespace WebAutopark.Controllers
         }
 
         [HttpGet]
-        public IActionResult Details()
+        public IActionResult Details(int id)
         {
-            return View();
+            var order = _orderRepo.GetById(id);
+            return View(order);
         }
     }
 }

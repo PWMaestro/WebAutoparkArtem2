@@ -24,11 +24,9 @@
                 <td>@order.Vehicle.VehicleType.TypeName</td>
                 <td>@order.Vehicle.RegistrationNumber</td>
                 <td>
-                    <a asp-controller="Order" asp-action="Details">Order Elements</a>
+                    <a asp-controller="Order" asp-action="Details" asp-route-id="@order.OrderId">Details</a>
                 </td>
             </tr>
         }
     </tbody>
 </table>
-
-<a asp-controller="Order" asp-action="Create">Create new</a>

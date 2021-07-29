@@ -28,13 +28,13 @@ namespace DataAccessLayer.Repositories
                                            + "     JOIN VehicleTypes   AS VT  ON VT.VehicleTypeId = V.VehicleTypeId";
 
         private const string sqlGetById = "SELECT "
-                                            + "O.*, V.Id AS VId, V.VehicleTypeId, V.ModelName, V.RegistrationNumber, V.WeightKg, V.ManufactureYear, "
+                                            + "O.*, V.VehicleId AS VId, V.VehicleTypeId, V.ModelName, V.RegistrationNumber, V.Weight, V.ManufactureYear, "
                                             + "V.Mileage, V.Color, V.EngineType, V.EngineCapacity, V.EngineConsumption, V.EnergyTankCapacity, "
                                             + "OE.OrderElementId AS OEId, OE.OrderId, OE.SpareId, OE.SpareQuantity, "
-                                            + "SP.SpareId AS SPId, SP.Name"
-                                        + "FROM Orders AS O"
-                                            + "LEFT JOIN OrderElements  AS OE  ON O.OrderId = OE.OrderId"
-                                            + "     JOIN Vehicles       AS V   ON O.VehicleId = V.Id"
+                                            + "SP.SpareId AS SPId, SP.Name "
+                                        + "FROM Orders AS O "
+                                            + "LEFT JOIN OrderElements  AS OE  ON O.OrderId = OE.OrderId "
+                                            + "     JOIN Vehicles       AS V   ON O.VehicleId = V.VehicleId "
                                             + "LEFT JOIN Spares         AS SP  ON OE.SpareId = SP.SpareId " 
                                         + "WHERE O.OrderId = @id";
 

@@ -1,0 +1,29 @@
+﻿@using WebAutopark.Models
+@model CreateOrderElementModel
+@{
+    ViewData["Title"] = "WAuto | CREATE ORDER ELEMENT";
+}
+
+@using (Html.BeginForm("CreateOrderElement", "OrderElement", FormMethod.Post))
+{
+    <label>Order ID</label>
+    <br />
+    @Html.TextBoxFor(
+        m => m.OrderElement.OrderId,
+        new { @readonly = "readonly" }
+    )
+    <br />
+    <label>Spare</label>
+    <br />
+    @Html.DropDownListFor(
+        m => m.OrderElement.SpareId,
+        Model.SpareId
+    )
+    <br />
+    <label>Quantity</label>
+    <br />
+    @Html.EditorFor(m => m.OrderElement.SpareQuantity)
+    <br />
+
+    <button type="submit">Create</button>
+}

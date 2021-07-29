@@ -1,5 +1,42 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using DataAccessLayer.Entities
+@model Order
 @{
+    ViewData["Title"] = "WAuto | ORDER DETAILS";
 }
+
+<a asp-controller="Order" asp-action="Index">Back</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Model name</th>
+            <th scope="col">Reg. number</th>
+            <th scope="col">Spares</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>@Model.OrderId</td>
+            <td>@Model.Vehicle.ModelName</td>
+            <td>@Model.Vehicle.RegistrationNumber</td>
+            <td>
+                <ul>
+                    @foreach (var spare in Model.OrderElements)
+                    {
+                        <li>
+                            @spare.Part.Name
+                            <span> / </span>
+                            @spare.SpareQuantity
+                            <span> pcs.</span>
+                        </li>
+                    }
+                    <li>
+                        <a asp-controller="OrderElement" asp-action="Create" asp-route-orderid="@Model.OrderId">Add new</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
