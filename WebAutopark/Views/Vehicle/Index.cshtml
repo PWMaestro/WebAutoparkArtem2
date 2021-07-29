@@ -1,0 +1,60 @@
+﻿@using DataAccessLayer.Entities
+@model IEnumerable<Vehicle>
+@{
+    ViewData["Title"] = "WAuto | VEHICLES";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                ID
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="id" asp-route-direction="forward">↓</a>
+                <span>/</span>
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="id" asp-route-direction="reverse">↑</a>
+            </th>
+            <th scope="col">
+                Type
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="type" asp-route-direction="forward">↓</a>
+                <span>/</span>
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="type" asp-route-direction="reverse">↑</a>
+            </th>
+            <th scope="col">
+                Name
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="name" asp-route-direction="forward">↓</a>
+                <span>/</span>
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="name" asp-route-direction="reverse">↑</a>
+            </th>
+            <th scope="col">
+                Mileage
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="mileage" asp-route-direction="forward">↓</a>
+                <span>/</span>
+                <a asp-controller="Vehicle" asp-action="Index" asp-route-col="mileage" asp-route-direction="reverse">↑</a>
+            </th>
+            <th scope="col">Action</th>
+            <th scope="col">Info</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var vehicle in Model)
+        {
+            <tr>
+                <td>@vehicle.VehicleId</td>
+                <td>@vehicle.VehicleType.TypeName</td>
+                <td>@vehicle.ModelName</td>
+                <td>@vehicle.Mileage</td>
+                <td>
+                    <a asp-controller="Vehicle" asp-action="Update" asp-route-id="@vehicle.VehicleId">Update</a>
+                    <span>/</span>
+                    <a asp-controller="Vehicle" asp-action="Delete" asp-route-id="@vehicle.VehicleId">Delete</a>
+                </td>
+                <td>
+                    <a asp-controller="Vehicle" asp-action="Details" asp-route-id="@vehicle.VehicleId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-controller="Vehicle" asp-action="Create">Create new</a>

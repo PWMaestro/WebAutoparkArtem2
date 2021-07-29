@@ -29,7 +29,7 @@ namespace WebAutopark
             string connectionString = Configuration.GetConnectionString("DataBase");
             services.AddTransient<IRepository<OrderElement>, OrderElementsRepository>(provider => new OrderElementsRepository(connectionString));
             services.AddTransient<IRepository<VehicleType>, VehicleTypeRepository>(provider => new VehicleTypeRepository(connectionString));
-            services.AddTransient<IRepository<Vehicle>, VehicleRepository>(provider => new VehicleRepository(connectionString));
+            services.AddTransient<IVehicleRepository, VehicleRepository>(provider => new VehicleRepository(connectionString));
             services.AddTransient<IRepository<Spare>, SparesRepository>(provider => new SparesRepository(connectionString));
             services.AddTransient<IRepository<Order>, OrderRepository>(provider => new OrderRepository(connectionString));
             services.AddControllersWithViews();

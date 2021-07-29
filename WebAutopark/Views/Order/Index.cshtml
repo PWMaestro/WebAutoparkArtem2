@@ -1,0 +1,32 @@
+﻿@using DataAccessLayer.Entities
+@model IEnumerable<Order>
+@{
+    ViewData["Title"] = "WAuto | ORDERS";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Order ID</th>
+            <th scope="col">Vehicle name</th>
+            <th scope="col">Vehicle type</th>
+            <th scope="col">Reg number</th>
+            <th scope="col">Order elements</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.OrderId</td>
+                <td>@order.Vehicle.ModelName</td>
+                <td>@order.Vehicle.VehicleType.TypeName</td>
+                <td>@order.Vehicle.RegistrationNumber</td>
+                <td>
+                    <a asp-controller="Order" asp-action="Details" asp-route-id="@order.OrderId">Details</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
