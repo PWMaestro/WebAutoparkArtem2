@@ -23,13 +23,7 @@ namespace WebAutopark.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            var orders = _orderRepo.GetAll().GroupBy(o => o.OrderId).Select(g => new Order
-            {
-                OrderId = g.Key,
-                VehicleId = g.First().VehicleId,
-                Vehicle = g.First().Vehicle,
-                OrderElements = g.First().OrderElements
-            });
+            var orders = _orderRepo.GetAll();
             return View(orders);
         }
 
