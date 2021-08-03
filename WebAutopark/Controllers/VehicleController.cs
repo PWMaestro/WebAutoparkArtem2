@@ -40,9 +40,8 @@ namespace WebAutopark.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var model = new CreateUpdateVehicleModel();
-            var vehicleTypes = _vehicleTypeRepo.GetAll();
-            model.VehicleTypeIds = new SelectList(vehicleTypes, "VehicleTypeId", "TypeName");
+            var model = new Vehicle();
+            ViewBag.vehicleTypes = new SelectList(_vehicleTypeRepo.GetAll(), "VehicleTypeId", "TypeName");
 
             return View(model);
         }
@@ -57,10 +56,8 @@ namespace WebAutopark.Controllers
         [HttpGet]
         public IActionResult Update(int id)
         {
-            var model = new CreateUpdateVehicleModel();
-            var vehicleTypes = _vehicleTypeRepo.GetAll();
-            model.Vehicle = _vehicleRepo.GetById(id);
-            model.VehicleTypeIds = new SelectList(vehicleTypes, "VehicleTypeId", "TypeName");
+            var model = _vehicleRepo.GetById(id);
+            ViewBag.vehicleTypes = new SelectList(_vehicleTypeRepo.GetAll(), "VehicleTypeId", "TypeName");
 
             return View(model);
         }
