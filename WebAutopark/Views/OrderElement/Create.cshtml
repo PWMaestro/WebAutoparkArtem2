@@ -1,5 +1,5 @@
-﻿@using WebAutopark.Models
-@model CreateOrderElementModel
+﻿@using DataAccessLayer.Entities
+@model OrderElement
 @{
     ViewData["Title"] = "WAuto | CREATE ORDER ELEMENT";
 }
@@ -9,20 +9,20 @@
     <label>Order ID</label>
     <br />
     @Html.TextBoxFor(
-        m => m.OrderElement.OrderId,
+        m => m.OrderId,
         new { @readonly = "readonly" }
     )
     <br />
     <label>Spare</label>
     <br />
     @Html.DropDownListFor(
-        m => m.OrderElement.SpareId,
-        Model.SpareId
+        m => m.SpareId,
+        ViewBag.Spares as IEnumerable<SelectListItem>
     )
     <br />
     <label>Quantity</label>
     <br />
-    @Html.EditorFor(m => m.OrderElement.SpareQuantity)
+    @Html.EditorFor(m => m.SpareQuantity)
     <br />
 
     <button type="submit">Create</button>
