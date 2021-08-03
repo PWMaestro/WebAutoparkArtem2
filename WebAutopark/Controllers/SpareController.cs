@@ -52,11 +52,11 @@ namespace WebAutopark.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             _spareRepo.Delete(id);
-            return RedirectToAction("Index");
+            return Ok();
         }
     }
 }
