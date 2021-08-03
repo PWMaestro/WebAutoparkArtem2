@@ -24,7 +24,7 @@
                 <td>
                     <a asp-controller="VehicleType" asp-action="Update" asp-route-id="@vehicleType.VehicleTypeId">Update</a>
                     <span>/</span>
-                    <a asp-controller="VehicleType" asp-action="Delete" asp-route-id="@vehicleType.VehicleTypeId">Delete</a>
+                    <a href="#" onclick="deleteAndReload(@vehicleType.VehicleTypeId)">Delete</a>
                 </td>
             </tr>
         }
@@ -32,3 +32,15 @@
 </table>
 
 <a asp-controller="VehicleType" asp-action="Create">Create new</a>
+
+@section Scripts{
+    <script>
+        function deleteAndReload(id) {
+            $.ajax({
+                type: 'DELETE',
+                url: '@Url.Action("Delete", "VehicleType")' + `/${id}`,
+                success: () => window.location.reload(false)
+            });
+        }
+    </script>
+} 
