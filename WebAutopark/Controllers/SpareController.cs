@@ -32,9 +32,9 @@ namespace WebAutopark.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string name)
+        public IActionResult Create(Spare spare)
         {
-            _spareRepo.Create(new Spare { Name = name });
+            _spareRepo.Create(spare);
             return RedirectToAction("Index");
         }
 
