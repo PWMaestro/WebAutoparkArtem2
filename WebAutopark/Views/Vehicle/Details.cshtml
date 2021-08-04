@@ -38,4 +38,11 @@
     </tbody>
 </table>
 
-<a asp-controller="Order" asp-action="Create" asp-route-vehicleid="@Model.VehicleId">Create order</a>
+@using (Html.BeginForm("Create", "Order", FormMethod.Post))
+{
+    @Html.TextBoxFor(
+        m => m.VehicleId,
+        new { @readonly = "readonly", @hidden = "hidden" }
+    )
+    <button type="submit">Create order</button>
+}

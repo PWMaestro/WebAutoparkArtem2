@@ -27,7 +27,7 @@ namespace WebAutopark.Controllers
             return View(orders);
         }
 
-        [HttpGet]
+        [HttpPost]
         public IActionResult Create(Order order)
         {
             _orderRepo.Create(order);
