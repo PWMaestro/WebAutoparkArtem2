@@ -4,15 +4,18 @@
     ViewData["Title"] = "WAuto | UPDATE VEHICLE TYPE";
 }
 
+<a asp-controller="VehicleType" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Update", "VehicleType", FormMethod.Post))
 {
-    <label>Vehicle type ID:</label>
-    <br />
+    @Html.LabelFor(
+        m => m.VehicleTypeId,
+        new { @hidden = "hidden" }
+    )
     @Html.TextBoxFor(
         m => m.VehicleTypeId,
-        new { @readonly = "readonly" }
+        new { @readonly = "readonly", @hidden = "hidden" }
     )
-    <br />
     <label>Vehicle type name:</label>
     <br />
     @Html.TextBoxFor(m => m.TypeName)

@@ -4,6 +4,8 @@
     ViewData["Title"] = "WAuto | CREATE SPARE";
 }
 
+<a asp-controller="Spare" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Create", "Spare", FormMethod.Post))
 {
     <label>Spare part name:</label>

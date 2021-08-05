@@ -1,66 +1,69 @@
 ﻿@using DataAccessLayer.Entities
 @using WebAutopark.Models
-@model CreateUpdateVehicleModel
+@model Vehicle
 @{
     ViewData["Title"] = "WAuto | UPDATE VEHICLE";
 }
 
+<a asp-controller="Vehicle" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Update", "Vehicle", FormMethod.Post))
 {
-    <label>Vehicle ID:</label>
-    <br />
-    @Html.TextBoxFor(
-        m => m.Vehicle.VehicleId,
-        new { @readonly = "readonly" }
+    @Html.LabelFor(
+        m => m.VehicleId,
+        new { @hidden = "hidden" }
     )
-    <br />
+    @Html.TextBoxFor(
+        m => m.VehicleId,
+        new { @readonly = "readonly", @hidden = "hidden" }
+    )
     <label>Model name:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.ModelName)
+    @Html.EditorFor(m => m.ModelName)
     <br />
     <label>Vehicle type:</label>
     <br />
     @Html.DropDownListFor(
-        m => m.Vehicle.VehicleTypeId,
-        Model.VehicleTypeIds as IEnumerable<SelectListItem>
+        m => m.VehicleTypeId,
+        ViewBag.VehicleTypes as IEnumerable<SelectListItem>
     )
     <br />
     <label>Registration number:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.RegistrationNumber)
+    @Html.EditorFor(m => m.RegistrationNumber)
     <br />
     <label>Manufacture year:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.ManufactureYear)
+    @Html.EditorFor(m => m.ManufactureYear)
     <br />
     <label>Mileage:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.Mileage)
+    @Html.EditorFor(m => m.Mileage)
     <br />
     <label>Weight:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.Weight)
+    @Html.EditorFor(m => m.Weight)
     <br />
     <label>Engine type:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.EngineType)
+    @Html.EditorFor(m => m.EngineType)
     <br />
     <label>Engine capacity:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.EngineCapacity)
+    @Html.EditorFor(m => m.EngineCapacity)
     <br />
     <label>Engine consumption:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.EngineConsumption)
+    @Html.EditorFor(m => m.EngineConsumption)
     <br />
     <label>Energy tank capacity:</label>
     <br />
-    @Html.EditorFor(m => m.Vehicle.EnergyTankCapacity)
+    @Html.EditorFor(m => m.EnergyTankCapacity)
     <br />
     <label>Color:</label>
     <br />
     @Html.DropDownListFor(
-        e => e.Vehicle.Color,
+        e => e.Color,
         Html.GetEnumSelectList(typeof(Color))
     )
     <br />

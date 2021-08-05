@@ -4,15 +4,18 @@
     ViewData["Title"] = "WAuto | UPDATE SPARE";
 }
 
+<a asp-controller="Spare" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Update", "Spare", FormMethod.Post))
 {
-    <label>Spare part ID:</label>
-    <br />
+    @Html.LabelFor(
+        m => m.SpareId,
+        new { @hidden = "hidden" }
+    )
     @Html.TextBoxFor(
         m => m.SpareId,
-        new { @readonly = "readonly"}
+        new { @readonly = "readonly", @hidden = "hidden" }
     )
-    <br />
     <label>Spare part name:</label>
     <br />
     @Html.TextBoxFor(m => m.Name)

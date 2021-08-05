@@ -32,9 +32,9 @@ namespace WebAutopark.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string name)
+        public IActionResult Create(Spare spare)
         {
-            _spareRepo.Create(new Spare { Name = name });
+            _spareRepo.Create(spare);
             return RedirectToAction("Index");
         }
 
@@ -52,11 +52,11 @@ namespace WebAutopark.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
+        [HttpDelete]
         public IActionResult Delete(int id)
         {
             _spareRepo.Delete(id);
-            return RedirectToAction("Index");
+            return Ok();
         }
     }
 }

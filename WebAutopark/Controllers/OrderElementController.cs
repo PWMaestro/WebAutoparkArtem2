@@ -32,13 +32,8 @@ namespace WebAutopark.Controllers
         [HttpGet]
         public IActionResult Create(OrderElement orderElement)
         {
-            var model = new CreateOrderElementModel
-            {
-                OrderElement = orderElement,
-                SpareId = new SelectList(_spareRepo.GetAll(), "SpareId", "Name")
-            };
-
-            return View(model);
+            ViewBag.Spares = new SelectList(_spareRepo.GetAll(), "SpareId", "Name");
+            return View(orderElement);
         }
     }
 }
