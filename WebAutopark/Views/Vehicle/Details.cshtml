@@ -9,30 +9,50 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Model name</th>
-            <th scope="col">Vehicle type</th>
-            <th scope="col">Tax coeff.</th>
-            <th scope="col">Engine volume</th>
-            <th scope="col">Year</th>
-            <th scope="col">Reg. number</th>
-            <th scope="col">Color</th>
-            <th scope="col">Tax rer month</th>
-            <th scope="col">Max distance (km)</th>
+            <th scope="col">Name:</th>
+            <th scope="col">Value:</th>
         </tr>
     </thead>
 
     <tbody>
-        <tr>
+        <tr scope="col">
+            <td>Id</td>
             <td>@Model.VehicleId</td>
+        </tr>
+        <tr scope="col">
+            <td>Model name</td>
             <td>@Model.ModelName</td>
+        </tr>
+        <tr scope="col">
+            <td>Vehicle type</td>
             <td>@Model.VehicleType.TypeName</td>
+        </tr>
+        <tr scope="col">
+            <td>Tax coeff.</td>
             <td>@Model.VehicleType.TaxCoeff</td>
+        </tr>
+        <tr scope="col">
+            <td>Engine volume</td>
             <td>@Model.EngineCapacity</td>
+        </tr>
+        <tr scope="col">
+            <td>Year</td>
             <td>@Model.ManufactureYear</td>
+        </tr>
+        <tr scope="col">
+            <td>Reg. number</td>
             <td>@Model.RegistrationNumber</td>
+        </tr>
+        <tr scope="col">
+            <td>Color</td>
             <td>@Model.Color</td>
+        </tr>
+        <tr scope="col">
+            <td>Tax per month</td>
             <td>@Model.TaxPerMonth.ToString("0.00")</td>
+        </tr>
+        <tr scope="col">
+            <td>Max distance (km)</td>
             <td>@Model.MaxKm.ToString("0.00")</td>
         </tr>
     </tbody>
