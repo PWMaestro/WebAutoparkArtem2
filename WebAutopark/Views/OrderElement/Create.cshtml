@@ -4,7 +4,7 @@
     ViewData["Title"] = "WAuto | CREATE ORDER ELEMENT";
 }
 
-<a asp-controller="Order" asp-action="Details" asp-route-id="@Model.OrderId">Back</a>
+<a asp-controller="Order" asp-action="Details" asp-route-id="@Model.OrderId">Cancel</a>
 
 @using (Html.BeginForm("CreateOrderElement", "OrderElement", FormMethod.Post))
 {
