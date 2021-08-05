@@ -7,13 +7,14 @@
 
 @using (Html.BeginForm("Update", "Vehicle", FormMethod.Post))
 {
-    <label>Vehicle ID:</label>
-    <br />
+    @Html.LabelFor(
+        m => m.VehicleId,
+        new { @hidden = "hidden" }
+    )
     @Html.TextBoxFor(
         m => m.VehicleId,
-        new { @readonly = "readonly" }
+        new { @readonly = "readonly", @hidden = "hidden" }
     )
-    <br />
     <label>Model name:</label>
     <br />
     @Html.EditorFor(m => m.ModelName)

@@ -6,13 +6,14 @@
 
 @using (Html.BeginForm("CreateOrderElement", "OrderElement", FormMethod.Post))
 {
-    <label>Order ID</label>
-    <br />
+    @Html.LabelFor(
+        m => m.OrderId,
+        new { @hidden = "hidden" }
+    )
     @Html.TextBoxFor(
         m => m.OrderId,
-        new { @readonly = "readonly" }
+        new { @readonly = "readonly", @hidden = "hidden" }
     )
-    <br />
     <label>Spare</label>
     <br />
     @Html.DropDownListFor(
