@@ -4,6 +4,8 @@
     ViewData["Title"] = "WAuto | UPDATE VEHICLE TYPE";
 }
 
+<a asp-controller="VehicleType" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Update", "VehicleType", FormMethod.Post))
 {
     @Html.LabelFor(

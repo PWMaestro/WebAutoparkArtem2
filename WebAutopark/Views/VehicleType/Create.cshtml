@@ -4,6 +4,8 @@
     ViewData["Title"] = "WAuto | CREATE VEHICLE TYPE";
 }
 
+<a asp-controller="VehicleType" asp-action="Index">Cancel</a>
+
 @using (Html.BeginForm("Create", "VehicleType", FormMethod.Post))
 {
     <label>Vehicle type name:</label>
