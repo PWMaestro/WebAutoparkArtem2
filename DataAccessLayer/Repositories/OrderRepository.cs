@@ -9,9 +9,13 @@ using DataAccessLayer.Interfaces;
 
 namespace DataAccessLayer.Repositories
 {
-    public class OrderRepository : RepositoryBase, IRepository<Order>
+    public class OrderRepository : RepositoryBase, IOrderRepository
     {
         private const string sqlCreate = "INSERT INTO Orders (VehicleId) VALUES(@VehicleId)";
+
+        private const string sqlCreateAndReturn = "INSERT INTO Orders (VehicleId) "
+                                                + "OUTPUT INSERTED.OrderId, INSERTED.VehicleId "
+                                                + "VALUES(@VehicleId)";
 
         private const string sqlDelete = "DELETE FROM Orders WHERE OrderId = @id";
 
@@ -43,6 +47,11 @@ namespace DataAccessLayer.Repositories
         public OrderRepository(string connection) : base(connection) { }
 
         public void Create(Order instance) => connection.Execute(sqlCreate, instance);
+
+        public Order CreateAndReturn(Order instance)
+        {
+            return connection.QuerySingle<Order> (sqlCreateAndReturn, instance);
+        }
 
         public void Delete(int id) => connection.Execute(sqlDelete, new { id });
 

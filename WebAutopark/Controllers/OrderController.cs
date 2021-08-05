@@ -11,10 +11,10 @@ namespace WebAutopark.Controllers
 {
     public class OrderController : Controller
     {
-        private readonly IRepository<Order> _orderRepo;
+        private readonly IOrderRepository _orderRepo;
         private readonly IVehicleRepository _vehicleRepo;
 
-        public OrderController(IRepository<Order> orderRepository, IVehicleRepository vehicleRepository)
+        public OrderController(IOrderRepository orderRepository, IVehicleRepository vehicleRepository)
         {
             _orderRepo = orderRepository;
             _vehicleRepo = vehicleRepository;
@@ -30,8 +30,13 @@ namespace WebAutopark.Controllers
         [HttpPost]
         public IActionResult Create(Order order)
         {
-            _orderRepo.Create(order);
-            return RedirectToAction("Index");
+            var newOrder = _orderRepo.CreateAndReturn(order);
+            return RedirectToAction
+            (
+                "Create",
+                "OrderElement",
+                new OrderElement() { OrderId = newOrder.OrderId }
+            );
         }
 
         [HttpGet]
